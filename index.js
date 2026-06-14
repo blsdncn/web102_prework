@@ -45,11 +45,22 @@ function addGamesToPage(games) {
 
         // append the game to the games-container
 
+    for (const game of games){
+        const gameElement = document.createElement('div')
+        gameElement.classList.add('game-card')
+        gameElement.innerHTML = `
+        <h4>${game.name}</h4>
+        <p>${game.description}</p>
+        <img class="game-img" src="${game.img}" a="${game.name} image.">
+        `
+        gamesContainer.appendChild(gameElement);
+    }
 }
 
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
 
+addGamesToPage(GAMES_JSON)
 
 /*************************************************************************************
  * Challenge 4: Create the summary statistics at the top of the page displaying the
